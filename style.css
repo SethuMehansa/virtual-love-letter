@@ -1,0 +1,132 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+  font-family: "Poppins", sans-serif;
+}
+
+.book {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+
+.page {
+  min-height: 200px;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.nav-buttons {
+  margin-top: 15px;
+}
+
+.nav-buttons button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #bc65be;
+  color: white;
+  transition: 0.3s;
+}
+
+.nav-buttons button:hover {
+  background: #ee99ef;
+}
+
+.love-question {
+  display: none;
+  margin-top: 20px;
+}
+
+.love-question button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  margin: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#yesBtn {
+  background: #5fff7c;
+  color: white;
+}
+
+#noBtn {
+  background: #e74444;
+  color: rgb(244, 241, 241);
+  position: relative;
+}
+
+/* 🌸 Popup Modal */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  position: relative;
+  animation: popIn 0.3s ease-in-out;
+}
+
+.popup-content h2 {
+  margin-bottom: 0.5rem;
+  color: #ff4b5c;
+}
+
+.popup-content p {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #444;
+}
+
+/* 💫 Animation */
+@keyframes popIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
