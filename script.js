@@ -13,9 +13,13 @@ const pageContent = document.getElementById("page-content");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 const loveQuestion = document.getElementById("love-question");
-
+const heartsContainer = document.querySelector(".hearts-container");
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
+const noMoveSound = new Audio("assets/audio/no-btn.mp3");
+const yesMoveSound = new Audio("assets/audio/yes-btn.mp3");
+const controlsSound = new Audio("assets/audio/click.mp3");
+
 
 const phrases = [
   "Are you sure? 😏",
@@ -32,6 +36,7 @@ let startedRunning = false;
 
 function updatePage() {
   pageContent.textContent = pages[currentPage];
+  controlsSound.play();
 
   if (currentPage === pages.length - 1) {
     loveQuestion.style.display = "block";
@@ -66,6 +71,7 @@ function moveButton() {
   // Change text after first attempt
   if (startedRunning) {
     noBtn.textContent = phrases[Math.floor(Math.random() * phrases.length)];
+    noMoveSound.play();
   }
 
   const btnWidth = noBtn.offsetWidth;
@@ -86,9 +92,45 @@ updatePage();
 // Show popup on "Yes"
 yesBtn.addEventListener("click", () => {
   popup.classList.remove("hidden");
+  yesMoveSound.play();
+  startHeartRain();
+
 });
 
 //  Close popup
 closePopup.addEventListener("click", () => {
   popup.classList.add("hidden");
+  heartsContainer.innerHTML = "";
 });
+
+// Function to create heart elements
+function startHeartRain() {
+  const numberOfHearts = 200; // adjust for more/less hearts
+
+  for (let i = 0; i < numberOfHearts; i++) {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.textContent = "🤍";
+
+    // Random horizontal position
+    heart.style.left = Math.random() * 100 + "%";
+    heart.style.top = Math.random() * 100 + "%";
+
+    // Random size
+    const size = Math.random() * 20 + 10;
+    heart.style.fontSize = size + "px";
+
+    heart.style.animationDuration ="20s";
+
+    // Random delay
+    const delay = Math.random() * 2;
+    heart.style.animationDelay = delay + "s";
+
+    heartsContainer.appendChild(heart);
+
+    // Remove heart after animation ends
+    heart.addEventListener("animationend", () => {
+      heart.remove();
+    });
+  }
+}

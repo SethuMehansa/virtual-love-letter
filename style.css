@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
 body {
   margin: 0;
   padding: 0;
@@ -5,8 +8,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-  font-family: "Poppins", sans-serif;
+  background: linear-gradient(90deg,rgba(237, 17, 120, 1) 0%, rgba(237, 116, 155, 1) 35%, rgba(157, 0, 255, 1) 100%);  font-family: "Sour Gummy", sans-serif;
+  font-family: 'Sour Gummy';
+  font-weight:700;
+
 }
 
 .book {
@@ -41,6 +46,8 @@ body {
   background: #bc65be;
   color: white;
   transition: 0.3s;
+  font-family: 'Sour Gummy';
+
 }
 
 .nav-buttons button:hover {
@@ -60,6 +67,8 @@ body {
   border-radius: 8px;
   cursor: pointer;
   transition: 0.3s;
+  font-family: 'Sour Gummy';
+
 }
 
 #yesBtn {
@@ -119,6 +128,12 @@ body {
   color: #444;
 }
 
+.heart {
+  position: absolute;
+  animation: fall linear forwards;
+  z-index: -1;
+}
+
 /* Animation */
 @keyframes popIn {
   from {
@@ -128,5 +143,16 @@ body {
   to {
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(200px) scale(0.5);
+    opacity: 0;
   }
 }
