@@ -83,12 +83,12 @@ function moveButton() {
 // Initialize
 updatePage();
 
-// 🎉 Show popup on "Yes"
+// Show popup on "Yes"
 yesBtn.addEventListener("click", () => {
   popup.classList.remove("hidden");
 });
 
-// ❌ Close popup
+//  Close popup
 closePopup.addEventListener("click", () => {
   popup.classList.add("hidden");
 });
